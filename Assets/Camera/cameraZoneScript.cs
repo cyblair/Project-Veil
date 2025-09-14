@@ -43,7 +43,7 @@ public class cameraZoneScript : MonoBehaviour
         if (movementVect.y != 0)
         {
             moveCharAmountY = 2.5f;
-            camOffsetY = 12;
+            camOffsetY = 16;
         }
         cameraCode.targetPos = new Vector2(cameraCode.transform.position.x + camOffsetX * movementVect.x, cameraCode.transform.position.y + camOffsetY * movementVect.y);
         playerPos.position = new Vector3(playerPos.transform.position.x + moveCharAmountX * movementVect.x, playerPos.transform.position.y + moveCharAmountY * movementVect.y, playerPos.transform.position.z);
