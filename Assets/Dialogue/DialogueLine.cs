@@ -20,6 +20,8 @@ namespace DialogueSystem
 
         [Header("Sound")]
         [SerializeField] private AudioClip sound;
+        [SerializeField] private float basePitch;
+        [SerializeField] private float pitchRange;
 
         [Header("Character Image")]
         [SerializeField] private Sprite characterSprite;
@@ -37,7 +39,7 @@ namespace DialogueSystem
 
         private void Start()
         {
-            StartCoroutine(WriteText(input, textHolder, textColor, textFont, delay, sound, characterSprite, imageHolder, delayBetweenLines));
+            StartCoroutine(WriteText(input, textHolder, textColor, textFont, delay, sound, basePitch, pitchRange, characterSprite, imageHolder, delayBetweenLines));
         }
     }
 

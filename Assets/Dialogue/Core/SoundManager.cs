@@ -14,10 +14,16 @@ public class SoundManager : MonoBehaviour
 
         source = GetComponent<AudioSource>();
     }
-
-    public void PlaySound(AudioClip sound)
+    int everyOther;
+    public void PlaySound(AudioClip sound, float basePitch, float pitchRange)
     {
-        source.PlayOneShot(sound);
+        everyOther += 1;
+        if (everyOther > 2)
+        {
+            source.pitch = basePitch + Random.Range(-pitchRange, pitchRange);
+            source.PlayOneShot(sound);
+            everyOther = 0;
+        }
     }
 
 }
