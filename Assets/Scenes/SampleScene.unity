@@ -1063,6 +1063,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4825144106202575962, guid: 1a9335734cfd98142a0e8acf7edb4377, type: 3}
   m_PrefabInstance: {fileID: 311523650}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &402228713 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7843173842218438818, guid: 5fbb49207b19f754c8e888d39129167e, type: 3}
+  m_PrefabInstance: {fileID: 7843173840581132952}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -2631,6 +2636,21 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7843173842218438820, guid: 5fbb49207b19f754c8e888d39129167e, type: 3}
   m_PrefabInstance: {fileID: 7843173840581132952}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1852396093
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 402228713}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9110f15442b10e40ab2c9fb9d15bdb7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  movementSpeed: 10
+  moveDirection: {x: 0, y: 0}
+  move: {fileID: -6760614828899079784, guid: c08b534d25f471c4eafdbe03f35cac0a, type: 3}
 --- !u!4 &2104946815 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4825144106202575962, guid: 1a9335734cfd98142a0e8acf7edb4377, type: 3}
@@ -3440,9 +3460,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7843173842218438821, guid: 5fbb49207b19f754c8e888d39129167e, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7843173842218438823, guid: 5fbb49207b19f754c8e888d39129167e, type: 3}
       propertyPath: m_Mass
       value: 999
+      objectReference: {fileID: 0}
+    - target: {fileID: 7843173842218438823, guid: 5fbb49207b19f754c8e888d39129167e, type: 3}
+      propertyPath: m_Interpolate
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7843173842218438823, guid: 5fbb49207b19f754c8e888d39129167e, type: 3}
+      propertyPath: m_CollisionDetection
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5fbb49207b19f754c8e888d39129167e, type: 3}
