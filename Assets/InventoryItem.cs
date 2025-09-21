@@ -1,7 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using System;
+/*
 public interface InventoryItem
 {
     string Name { get; }
@@ -34,3 +35,4 @@ public class InventoryItem : MonoBehaviour
 
     }
 }
+*/

@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+/*
 public class GreatAx : MonoBehaviour, InventoryItem
 {
     public string Name
@@ -28,3 +28,4 @@ public class GreatAx : MonoBehaviour, InventoryItem
         gameObject.SetActive(false);
     }
 }
+*/
