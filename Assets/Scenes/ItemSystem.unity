@@ -1351,8 +1351,9 @@ GameObject:
   - component: {fileID: 680944208}
   - component: {fileID: 680944207}
   - component: {fileID: 680944206}
+  - component: {fileID: 680944209}
   m_Layer: 0
-  m_Name: Item
+  m_Name: GreatAx
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1453,6 +1454,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &680944209
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 680944204}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1a510a6ffe5cb14f9f271de6ec13040, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &732002139
 PrefabInstance:
   m_ObjectHideFlags: 0
