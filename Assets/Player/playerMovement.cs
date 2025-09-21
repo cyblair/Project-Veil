@@ -7,12 +7,15 @@ public class playerMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     public bool canMove = true;
     public float movementSpeed;
+
+    public Inventory inventory;
+
     void Update()
     {
         if (Input.GetKey(KeyCode.A))
@@ -59,6 +62,15 @@ public class playerMovement : MonoBehaviour
             {
                 transform.position += new Vector3(direction.x, direction.y, 0) * distance;
             }
+        }
+    }
+
+    private void OnControllerColliderHit(ControllerColliderHit hit)
+    {
+        InventoryItem = hit.collider.GetComponent<InventoryItem>();
+        if (item != null)
+        {
+            inventory.Add(item);
         }
     }
 }
