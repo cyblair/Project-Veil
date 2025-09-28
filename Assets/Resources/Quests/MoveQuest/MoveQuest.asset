@@ -12,10 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de3bae0da2f7fbc4c91d88caf2ea708b, type: 3}
   m_Name: MoveQuest
   m_EditorClassIdentifier: 
-  <id>k__BackingField: CollectCoinsQuest
-  displayName: Collect the Coins!
+  <id>k__BackingField: MoveQuest
+  displayName: Move the character.
   levelRequirement: 1
   questPrerequisites: []
-  questStepPrefabs: []
+  questStepPrefabs:
+  - {fileID: 8124693035751509301, guid: cef5bc6dda43568428b0ea8067e011b1, type: 3}
   goldReward: 50
   experienceReward: 250
