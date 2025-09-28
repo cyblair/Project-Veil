@@ -1,4 +1,3 @@
-/*
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,10 +8,10 @@ public class npcScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-  //      playerMoveCode = GameObject.FindGameObjectWithTag("Player").GetComponent<playerMovement>();
+        playerMoveCode = GameObject.FindGameObjectWithTag("Player").GetComponent<playerMovement>();
     }
     public TextMeshProUGUI dialogueText;
-    //private PlayerControler playerMoveCode;
+    private playerMovement playerMoveCode;
     int textBoxIndex;
 
     // Update is called once per frame
@@ -24,7 +23,7 @@ public class npcScript : MonoBehaviour
             {
                 if (textBoxIndex == dialogue.Count)
                 {
-            //        playerMoveCode.canMove = true;
+                    playerMoveCode.canMove = true;
                     textBoxIndex = 0;
                     dialogueText.text = "";
                 }
@@ -32,7 +31,7 @@ public class npcScript : MonoBehaviour
                 {
                     dialogueText.text = dialogue[textBoxIndex];
                     textBoxIndex += 1;
-             //       playerMoveCode.canMove = false;
+                    playerMoveCode.canMove = false;
                 }
             }
         }
@@ -58,4 +57,3 @@ public class npcScript : MonoBehaviour
     }
 
 }
-*/
