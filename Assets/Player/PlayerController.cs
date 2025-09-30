@@ -4,43 +4,29 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PlayerControler : MonoBehaviour
+public class PlayerController : MonoBehaviour
 {
     public float movementSpeed;
     public Vector2 moveDirection;
-    public InputActionReference move;
     private bool canMove = true;
  
     // public Animator Animator; can worry about this later
 
-    private void OnEnable()
-    {
-        if (move != null && move.action != null)
-        {
-            move.action.Enable();
-        }
-    }
-    private void OnDisable()
-    {
-        if (move != null && move.action != null)
-        {
-            move.action.Disable();
-        }
-    }
-
     private void Update()
     {
-
-        //Animator.SetFloat("Speed", Mathf.Abs(MoveDirection));
-        moveDirection = move.action.ReadValue<Vector2>();
-        moveMe(moveDirection);
+        Move(moveDirection);
     }
 
-    private void moveMe(Vector2 moveVect)
+    private void OnMove(InputValue value)
+    {
+        moveDirection = value.Get<Vector2>();
+    }
+
+    private void Move(Vector2 moveVector)
     {
         if (canMove)
         {
-            Vector2 direction = moveVect.normalized;
+            Vector2 direction = moveVector.normalized;
             float distance = movementSpeed * Time.deltaTime;
             ContactFilter2D filter = new ContactFilter2D();
             filter.SetLayerMask(LayerMask.GetMask("StopMovement"));
@@ -62,6 +48,4 @@ public class PlayerControler : MonoBehaviour
             }
         }
     }
-
-
 }
