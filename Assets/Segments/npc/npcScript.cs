@@ -5,15 +5,20 @@ using TMPro;
 
 public class npcScript : MonoBehaviour
 {
+    public TextMeshProUGUI dialogueText;
+    private PlayerController player;
+    int textBoxIndex;
+    
+    public List<string> dialogue = new List<string>();
+    
+    public bool playerInRange;
+    
     // Start is called before the first frame update
     void Start()
     {
-        playerMoveCode = GameObject.FindGameObjectWithTag("Player").GetComponent<playerMovement>();
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
     }
-    public TextMeshProUGUI dialogueText;
-    private playerMovement playerMoveCode;
-    int textBoxIndex;
-
+    
     // Update is called once per frame
     void Update()
     {
@@ -23,7 +28,7 @@ public class npcScript : MonoBehaviour
             {
                 if (textBoxIndex == dialogue.Count)
                 {
-                    playerMoveCode.canMove = true;
+                    player.BlockMovement();
                     textBoxIndex = 0;
                     dialogueText.text = "";
                 }
@@ -31,15 +36,12 @@ public class npcScript : MonoBehaviour
                 {
                     dialogueText.text = dialogue[textBoxIndex];
                     textBoxIndex += 1;
-                    playerMoveCode.canMove = false;
+                    player.UnblockMovement();
                 }
             }
         }
     }
-    public List<string> dialogue = new List<string>();
-
-
-    public bool playerInRange;
+    
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))

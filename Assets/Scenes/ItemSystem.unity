@@ -888,9 +888,25 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 7843173842218438819, guid: 5fbb49207b19f754c8e888d39129167e, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7843173842218438820, guid: 5fbb49207b19f754c8e888d39129167e, type: 3}
       propertyPath: m_RootOrder
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7843173842218438820, guid: 5fbb49207b19f754c8e888d39129167e, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7843173842218438820, guid: 5fbb49207b19f754c8e888d39129167e, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7843173842218438820, guid: 5fbb49207b19f754c8e888d39129167e, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7843173842218438820, guid: 5fbb49207b19f754c8e888d39129167e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1091,7 +1107,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 311279078}
-  m_BodyType: 0
+  m_BodyType: 2
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -3275,7 +3291,7 @@ GameObject:
   - component: {fileID: 1736123427}
   - component: {fileID: 1736123429}
   - component: {fileID: 1736123428}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: NPCTalkZone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3349,7 +3365,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementSpeed: 5
-  moveDirection: {x: 0, y: 0}
 --- !u!114 &1739909983
 MonoBehaviour:
   m_ObjectHideFlags: 0
