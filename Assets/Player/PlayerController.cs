@@ -10,7 +10,8 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] private float movementSpeed;
-
+    [SerializeField] private Collider2D interactCollider;
+    
     private Rigidbody2D rb;
     private Vector2 moveDirection;
     private bool canMove = true;
@@ -28,6 +29,13 @@ public class PlayerController : MonoBehaviour
         if (canMove)
         {
             Move(moveDirection * movementSpeed);
+            
+            if (moveDirection != Vector2.zero)
+            {
+                
+                interactCollider.transform.localEulerAngles = new Vector3(0, 0,
+                    Mathf.Atan2(moveDirection.y, moveDirection.x) * Mathf.Rad2Deg);
+            }
         }
     }
 
@@ -63,6 +71,23 @@ public class PlayerController : MonoBehaviour
         // Set move direction to the normalized input direction.
         // Input should already be normalized, but we are using normalized here just in case.
         moveDirection = value.Get<Vector2>().normalized;
+    }
+
+    private void OnInteract(InputValue value)
+    {
+        if (!value.isPressed) return;
+
+        List<Collider2D> results = new List<Collider2D>();
+        ContactFilter2D contactFilter = new ContactFilter2D
+        {
+            layerMask = LayerMask.GetMask("Interactable"),
+            useLayerMask = true
+        };
+        int hits = interactCollider.OverlapCollider(contactFilter, results);
+
+        if (hits <= 0) return;
+        
+        results[0].gameObject.BroadcastMessage("Interact");
     }
 
     #region Device debugging

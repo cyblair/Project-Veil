@@ -878,6 +878,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1563655254}
     m_Modifications:
+    - target: {fileID: 1739909982, guid: 5fbb49207b19f754c8e888d39129167e, type: 3}
+      propertyPath: interactCollider
+      value: 
+      objectReference: {fileID: 926280727}
     - target: {fileID: 7843173842218438818, guid: 5fbb49207b19f754c8e888d39129167e, type: 3}
       propertyPath: m_Name
       value: Player
@@ -925,10 +929,6 @@ PrefabInstance:
     - target: {fileID: 7843173842218438820, guid: 5fbb49207b19f754c8e888d39129167e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7843173842218438823, guid: 5fbb49207b19f754c8e888d39129167e, type: 3}
-      propertyPath: m_Mass
-      value: 120
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5fbb49207b19f754c8e888d39129167e, type: 3}
@@ -1049,7 +1049,8 @@ GameObject:
   - component: {fileID: 311279082}
   - component: {fileID: 311279081}
   - component: {fileID: 311279080}
-  m_Layer: 3
+  - component: {fileID: 311279083}
+  m_Layer: 6
   m_Name: Placeholder NPC
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1067,8 +1068,7 @@ Transform:
   m_LocalPosition: {x: 0.5, y: -2.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1736123427}
+  m_Children: []
   m_Father: {fileID: 1563655254}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1171,6 +1171,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &311279083
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 311279078}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 424212c9c0e4df24a922a05024c74a43, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &320998897
 GameObject:
   m_ObjectHideFlags: 0
@@ -2150,6 +2162,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1a9335734cfd98142a0e8acf7edb4377, type: 3}
+--- !u!60 &926280727 stripped
+PolygonCollider2D:
+  m_CorrespondingSourceObject: {fileID: 2636877817308144056, guid: 5fbb49207b19f754c8e888d39129167e, type: 3}
+  m_PrefabInstance: {fileID: 197814701}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1190559421
 GameObject:
   m_ObjectHideFlags: 0
@@ -3255,73 +3272,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1736123426
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1736123427}
-  - component: {fileID: 1736123429}
-  - component: {fileID: 1736123428}
-  m_Layer: 0
-  m_Name: NPCTalkZone
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1736123427
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1736123426}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 14.029153}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 311279079}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1736123428
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1736123426}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8212b7d8f12e38c488945f680e76f027, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dialogueText: {fileID: 1274906939}
-  dialogue:
-  - tessssssst
-  - peee pee poo poo
-  - okay?
-  playerInRange: 0
---- !u!58 &1736123429
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1736123426}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 2.1
 --- !u!4 &1739909977 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7843173842218438820, guid: 5fbb49207b19f754c8e888d39129167e, type: 3}
