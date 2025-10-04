@@ -1,10 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class TriggerBattle : MonoBehaviour
 {
-
 	public string sceneToLoad;
 
 	void OnTriggerEnter2D(Collider2D other)
@@ -12,7 +12,7 @@ public class TriggerBattle : MonoBehaviour
 		if (other.name == "Player")
 		{
 			Destroy(GameObject.Find("BadGuy"));
-			Application.LoadLevel(sceneToLoad);
+			SceneManager.LoadScene(sceneToLoad);
 			//LoadBattleScreen ();
 		}
 	}
@@ -22,6 +22,6 @@ public class TriggerBattle : MonoBehaviour
 		GameController.control.inBattle = true;
 		Destroy(GameObject.Find("BadGuy"));
 		GameController.control.playerDead = true;
-		Application.LoadLevel(sceneToLoad);
+		SceneManager.LoadScene(sceneToLoad);
 	}
 }

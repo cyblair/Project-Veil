@@ -1,8 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-/*
-public class GreatAx : MonoBehaviour, InventoryItem
+
+public class GreatAx : MonoBehaviour
 {
     public string Name
     {
@@ -12,13 +12,13 @@ public class GreatAx : MonoBehaviour, InventoryItem
         }
     }
 
-    public Sprite _Image = null;
+    public Sprite image = null;
 
     public Sprite Image
     {
         get
         {
-            return _Image;
+            return image;
         }
     }
 
@@ -28,4 +28,3 @@ public class GreatAx : MonoBehaviour, InventoryItem
         gameObject.SetActive(false);
     }
 }
-*/

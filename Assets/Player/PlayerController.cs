@@ -1,23 +1,33 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Text;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
-    public float movementSpeed;
+    [SerializeField] private float movementSpeed;
+
+    private Rigidbody2D rb;
     private Vector2 moveDirection;
     private bool canMove = true;
- 
-    // public Animator Animator; can worry about this later
 
-    private void Update()
+    // public Animator animator; can worry about this later
+
+    private void Start()
+    {
+        rb = gameObject.GetComponent<Rigidbody2D>();
+        LogInputStatus();
+    }
+
+    private void FixedUpdate()
     {
         if (canMove)
         {
-            Move(moveDirection);
+            Move(moveDirection * movementSpeed);
         }
     }
 
@@ -30,33 +40,17 @@ public class PlayerController : MonoBehaviour
     {
         canMove = true;
     }
-    
+
     /// <summary>
-    /// Moves the player with blocking from the environment (Anything on the 'StopMovement' layer will block player
-    /// movement).
+    /// Moves the player by modifying the rigidbody velocity.
     /// </summary>
     /// <remarks>
-    /// This not check if the <c>canMove</c> flag is <c>true</c>.
+    /// This does not check if the <c>canMove</c> flag is <c>true</c>.
     /// </remarks>
     /// <param name="moveVector"> A 2d Vector of the direction to move the player in</param>
     public void Move(Vector2 moveVector)
     {
-        Vector2 direction = moveVector.normalized;
-        float distance = movementSpeed * Time.deltaTime;
-        ContactFilter2D filter = new ContactFilter2D();
-        filter.SetLayerMask(LayerMask.GetMask("StopMovement"));
-        filter.useTriggers = false;
-        RaycastHit2D hit = Physics2D.BoxCast(
-            transform.position,
-            new Vector2(0.8f, 0.8f),
-            0,
-            direction,
-            distance,
-            filter.layerMask.value
-        );
-
-        if (!hit)
-            transform.position += new Vector3(direction.x, direction.y, 0) * distance;
+        rb.velocity = moveVector;
     }
 
     /// <summary>
@@ -66,6 +60,31 @@ public class PlayerController : MonoBehaviour
     /// <param name="value"></param>
     private void OnMove(InputValue value)
     {
-        moveDirection = value.Get<Vector2>();
+        // Set move direction to the normalized input direction.
+        // Input should already be normalized, but we are using normalized here just in case.
+        moveDirection = value.Get<Vector2>().normalized;
     }
+
+    #region Device debugging
+
+    private void OnDeviceLost()
+    {
+        LogInputStatus();
+    }
+
+    private void OnDeviceRegained()
+    {
+        LogInputStatus();
+    }
+
+    private void LogInputStatus()
+    {
+        PlayerInput input = GetComponent<PlayerInput>();
+        Debug.Log($"Active: {input.isActiveAndEnabled}");
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.AppendJoin(", ", input.devices);
+        Debug.Log($"Devices: [{stringBuilder}]");
+    }
+
+    #endregion
 }
