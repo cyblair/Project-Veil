@@ -1,0 +1,115 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Text;
+using Unity.VisualScripting;
+using UnityEngine;
+using UnityEngine.InputSystem;
+
+public class PlayerController : MonoBehaviour
+{
+    [SerializeField] private float movementSpeed;
+    [SerializeField] private Collider2D interactCollider;
+    
+    private Rigidbody2D rb;
+    private Vector2 moveDirection;
+    private bool canMove = true;
+
+    // public Animator animator; can worry about this later
+
+    private void Start()
+    {
+        rb = gameObject.GetComponent<Rigidbody2D>();
+        LogInputStatus();
+    }
+
+    private void FixedUpdate()
+    {
+        if (canMove)
+        {
+            Move(moveDirection * movementSpeed);
+            
+            if (moveDirection != Vector2.zero)
+            {
+                
+                interactCollider.transform.localEulerAngles = new Vector3(0, 0,
+                    Mathf.Atan2(moveDirection.y, moveDirection.x) * Mathf.Rad2Deg);
+            }
+        }
+    }
+
+    public void BlockMovement()
+    {
+        canMove = false;
+    }
+
+    public void UnblockMovement()
+    {
+        canMove = true;
+    }
+
+    /// <summary>
+    /// Moves the player by modifying the rigidbody velocity.
+    /// </summary>
+    /// <remarks>
+    /// This does not check if the <c>canMove</c> flag is <c>true</c>.
+    /// </remarks>
+    /// <param name="moveVector"> A 2d Vector of the direction to move the player in</param>
+    public void Move(Vector2 moveVector)
+    {
+        rb.velocity = moveVector;
+    }
+
+    /// <summary>
+    /// A method that will only be called via broadcasts from a Player Input component. DO NOT CALL THIS METHOD. If you
+    /// want to manually move the player use <see cref="Move">Move</see>.
+    /// </summary>
+    /// <param name="value"></param>
+    private void OnMove(InputValue value)
+    {
+        // Set move direction to the normalized input direction.
+        // Input should already be normalized, but we are using normalized here just in case.
+        moveDirection = value.Get<Vector2>().normalized;
+    }
+
+    private void OnInteract(InputValue value)
+    {
+        if (!value.isPressed) return;
+
+        List<Collider2D> results = new List<Collider2D>();
+        ContactFilter2D contactFilter = new ContactFilter2D
+        {
+            layerMask = LayerMask.GetMask("Interactable"),
+            useLayerMask = true
+        };
+        int hits = interactCollider.OverlapCollider(contactFilter, results);
+
+        if (hits <= 0) return;
+        
+        results[0].gameObject.BroadcastMessage("Interact");
+    }
+
+    #region Device debugging
+
+    private void OnDeviceLost()
+    {
+        LogInputStatus();
+    }
+
+    private void OnDeviceRegained()
+    {
+        LogInputStatus();
+    }
+
+    private void LogInputStatus()
+    {
+        PlayerInput input = GetComponent<PlayerInput>();
+        Debug.Log($"Active: {input.isActiveAndEnabled}");
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.AppendJoin(", ", input.devices);
+        Debug.Log($"Devices: [{stringBuilder}]");
+    }
+
+    #endregion
+}
