@@ -32,9 +32,11 @@ public class PlayerController : MonoBehaviour
             
             if (moveDirection != Vector2.zero)
             {
-                
-                interactCollider.transform.localEulerAngles = new Vector3(0, 0,
-                    Mathf.Atan2(moveDirection.y, moveDirection.x) * Mathf.Rad2Deg);
+                float interactAngle = Vector2.SignedAngle(Vector2.right, moveDirection);
+                int segments = 8;
+                int angle = 360 / segments;
+                interactAngle = Mathf.Floor(interactAngle / angle) * angle;
+                interactCollider.transform.localEulerAngles = new Vector3(0, 0, interactAngle);
             }
         }
     }
