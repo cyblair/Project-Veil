@@ -1,8 +1,9 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public interface InventoryItem
+public interface IInventoryItem
 {
     string Name { get; }
     Sprite Image { get; }
@@ -10,9 +11,9 @@ public interface InventoryItem
     void OnPickup();
 }
 
-public class inventoryEventArgs : EventArgs
+public class InventoryEventArgs : EventArgs
 {
-    public inventoryEventArgs(InventoryItem item)
+    public InventoryEventArgs(InventoryItem item)
     {
         Item = item;
     }

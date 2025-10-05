@@ -6,11 +6,11 @@ public class Inventory : MonoBehaviour
 {
     private const int SLOTS = 6;
 
-    private List<InventoryItem> mItems = new List<InventoryItem>();
+    private List<IInventoryItem> mItems = new List<IInventoryItem>();
 
     public event EventHandler<InventoryEventArgs> ItemAdded;
 
-    public void AddItem(InventoryItem item)
+    public void AddItem(IInventoryItem item)
     {
         if (mItems < SLOTS)
         {
