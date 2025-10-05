@@ -67,10 +67,10 @@ public class playerMovement : MonoBehaviour
 
     private void OnControllerColliderHit(ControllerColliderHit hit)
     {
-        InventoryItem = hit.collider.GetComponent<InventoryItem>();
+        IInventoryItem item = hit.collider.GetComponent<IInventoryItem>();
         if (item != null)
         {
-            inventory.Add(item);
+            inventory.AddItem(item);
         }
     }
 }

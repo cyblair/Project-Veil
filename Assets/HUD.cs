@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -19,7 +20,7 @@ public class HUD : MonoBehaviour
 
         foreach (Transform slot in inventoryPanel)
         {
-            Image image = slot.GetChild(0).getChild(0).GetComponent<image>();
+            Image image = slot.GetChild(0).GetChild(0).GetComponent<Image>();
 
             // Empty inventory slot found
             if (!image.enabled)

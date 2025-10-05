@@ -13,12 +13,12 @@ public interface IInventoryItem
 
 public class InventoryEventArgs : EventArgs
 {
-    public InventoryEventArgs(InventoryItem item)
+    public InventoryEventArgs(IInventoryItem item)
     {
         Item = item;
     }
 
-    public InventoryItem Item;
+    public IInventoryItem Item;
 }
 
 public class InventoryItem : MonoBehaviour
