@@ -76,7 +76,7 @@ GameObject:
   - component: {fileID: 1739909983}
   - component: {fileID: -3542349545886399390}
   m_Layer: 0
-  m_Name: Placeholder Guy
+  m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -210,7 +210,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementSpeed: 5
-  coll: {fileID: 0}
+  interactCollider: {fileID: 0}
 --- !u!114 &1739909983
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -237,8 +237,8 @@ MonoBehaviour:
       m_Calls: []
   m_ActionEvents: []
   m_NeverAutoSwitchControlSchemes: 0
-  m_DefaultControlScheme: PlayerInput
-  m_DefaultActionMap: PlayerControls
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: 396cc3b5-0953-4be1-a313-89ffc0e4a2a0
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
 --- !u!114 &-3542349545886399390
