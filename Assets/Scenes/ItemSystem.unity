@@ -879,6 +879,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 1563655254}
     m_Modifications:
     - target: {fileID: 1739909982, guid: 5fbb49207b19f754c8e888d39129167e, type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 1739909984}
+    - target: {fileID: 1739909982, guid: 5fbb49207b19f754c8e888d39129167e, type: 3}
       propertyPath: interactCollider
       value: 
       objectReference: {fileID: 926280727}
@@ -1195,6 +1199,7 @@ GameObject:
   - component: {fileID: 320998900}
   - component: {fileID: 320998899}
   - component: {fileID: 320998898}
+  - component: {fileID: 320998902}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -1285,6 +1290,27 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!95 &320998902
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 320998897}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 1b07e1ea38de1c341b23cfa0f8eb3aa8, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &680944204
 GameObject:
   m_ObjectHideFlags: 0
@@ -3275,6 +3301,11 @@ Transform:
 --- !u!4 &1739909977 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7843173842218438820, guid: 5fbb49207b19f754c8e888d39129167e, type: 3}
+  m_PrefabInstance: {fileID: 197814701}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1739909984 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 8575829565667056662, guid: 5fbb49207b19f754c8e888d39129167e, type: 3}
   m_PrefabInstance: {fileID: 197814701}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &1797875661 stripped
