@@ -16,8 +16,8 @@ public class NPC : MonoBehaviour
         
     }
 
-    void Interact()
+    void Interact(GameObject source)
     {
-        Debug.Log("Hi! I'm an NPC!");
+        Debug.Log($"{source} Hi! I'm an NPC!");
     }
 }

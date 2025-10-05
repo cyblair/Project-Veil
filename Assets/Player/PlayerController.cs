@@ -89,7 +89,7 @@ public class PlayerController : MonoBehaviour
 
         if (hits <= 0) return;
         
-        results[0].gameObject.BroadcastMessage("Interact");
+        results[0].gameObject.BroadcastMessage("Interact", this.gameObject);
     }
 
     #region Device debugging
