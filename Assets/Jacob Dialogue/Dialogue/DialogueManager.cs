@@ -10,6 +10,9 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] private TextAsset inkJson;
 
     private Story story;
+
+    private int currentChoiceIndex = -1;
+
     public bool IsDialoguePlaying => dialoguePlaying;
 
     private void Awake()
@@ -23,11 +26,18 @@ public class DialogueManager : MonoBehaviour
     private void OnEnable()
     {
         GameEventsManager.instance.dialogueEvents.onEnterDialogue += EnterDialogue;
+        GameEventsManager.instance.dialogueEvents.onUpdateChoiceIndex += UpdateChoiceIndex;
     }
 
     private void OnDisable()
     {
         GameEventsManager.instance.dialogueEvents.onEnterDialogue -= EnterDialogue;
+        GameEventsManager.instance.dialogueEvents.onUpdateChoiceIndex -= UpdateChoiceIndex;
+    }
+
+    private void UpdateChoiceIndex(int choiceIndex)
+    {
+        this.currentChoiceIndex = choiceIndex;
     }
 
 
@@ -66,13 +76,21 @@ public class DialogueManager : MonoBehaviour
 
     private void ContinueOrExitStory()
     {
+        if (story.currentChoices.Count > 0 && currentChoiceIndex != -1)
+        {
+            story.ChooseChoiceIndex(currentChoiceIndex);
+            currentChoiceIndex = -1;
+        }
+
+
+
         if (story.canContinue)
         {
             string dialogueLine = story.Continue();
 
-            GameEventsManager.instance.dialogueEvents.DisplayDialogue(dialogueLine);
+            GameEventsManager.instance.dialogueEvents.DisplayDialogue(dialogueLine, story.currentChoices);
         }
-        else
+        else if (story.currentChoices.Count == 0)
         {
             GameEventsManager.instance.dialogueEvents.DialogueFinished();
             StartCoroutine(ExitDialogue());
