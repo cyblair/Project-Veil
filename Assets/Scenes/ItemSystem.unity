@@ -141,6 +141,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 7843173842218438819, guid: 5fbb49207b19f754c8e888d39129167e, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 1197823606, guid: 581345a37b9681d489650ee227908ef1, type: 3}
     - target: {fileID: 7843173842218438820, guid: 5fbb49207b19f754c8e888d39129167e, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -333,6 +337,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 424212c9c0e4df24a922a05024c74a43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dialogueKnotName: 
 --- !u!1 &320998897
 GameObject:
   m_ObjectHideFlags: 0
@@ -500,6 +505,7 @@ GameObject:
   - component: {fileID: 419407609}
   - component: {fileID: 419407608}
   - component: {fileID: 419407610}
+  - component: {fileID: 419407611}
   m_Layer: 0
   m_Name: CmCam
   m_TagString: Untagged
@@ -529,7 +535,7 @@ MonoBehaviour:
   m_Follow: {fileID: 1739909977}
   m_Lens:
     FieldOfView: 60
-    OrthographicSize: 6.54
+    OrthographicSize: 6.5
     NearClipPlane: 0.3
     FarClipPlane: 1000
     Dutch: 0
@@ -578,6 +584,18 @@ MonoBehaviour:
   m_BoundingShape2D: {fileID: 1754754437}
   m_ConfineScreenEdges: 1
   m_Damping: 0
+--- !u!114 &419407611
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 419407607}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a8a05de0ac134f4f9d01bef6b9da077, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &680944204
 GameObject:
   m_ObjectHideFlags: 0
@@ -831,7 +849,7 @@ MonoBehaviour:
   m_IgnoreTimeScale: 0
   m_WorldUpOverride: {fileID: 0}
   m_UpdateMethod: 0
-  m_BlendUpdateMethod: 1
+  m_BlendUpdateMethod: 0
   m_DefaultBlend:
     m_Style: 1
     m_Time: 2
@@ -883,7 +901,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 6.54
+  orthographic size: 6.5
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
@@ -913,7 +931,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 0, y: 0.05, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -0.14, z: 0}
 --- !u!114 &876121067
 MonoBehaviour:
   m_ObjectHideFlags: 0
