@@ -6,6 +6,8 @@ public class cameraScript : MonoBehaviour
 {
     // Start is called before the first frame update
     public Vector2 targetPos;
+    public bool camFollowPlayer;
+    public Transform targetPosPlayer;
     public float zoom;
     private Camera cameraComp;
     public float camSpeed;
@@ -17,6 +19,10 @@ public class cameraScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (camFollowPlayer)
+        {
+            targetPos = targetPosPlayer.position;
+        }
         if (transform.position.x < targetPos.x)
         {
             transform.position = new Vector3(transform.position.x + camSpeed * Time.deltaTime, transform.position.y, transform.position.z);
