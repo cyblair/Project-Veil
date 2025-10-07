@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 519c8c95b68ba5a47900358b9e996e3d
+guid: 906946edcb153374e9e1792b0f7fcd23
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -89,269 +89,194 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: Server
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: heroBaseSprite_0
+      name: Beast_Slash_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 128
-        width: 64
-        height: 64
-      alignment: 1
-      pivot: {x: 0, y: 1}
+        y: 640
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fc11e643737a04f4b8c052e7943d9432
-      internalID: 130481834
+      spriteID: 732783162d4cfff4fbb8be2373c4ba6f
+      internalID: 2035946117
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: heroBaseSprite_1
+      name: Beast_Slash_1
       rect:
         serializedVersion: 2
-        x: 64
-        y: 128
-        width: 64
-        height: 64
-      alignment: 1
-      pivot: {x: 0, y: 1}
+        x: 320
+        y: 640
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a5ca5cdfd812c444a9e678b0d14b9788
-      internalID: -1230376856
+      spriteID: bf5988f6d1fb46e42bc2ee453bf3c596
+      internalID: 844108507
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: heroBaseSprite_2
+      name: Beast_Slash_2
       rect:
         serializedVersion: 2
-        x: 128
-        y: 128
-        width: 64
-        height: 64
-      alignment: 1
-      pivot: {x: 0, y: 1}
+        x: 640
+        y: 640
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4963b14b6bee8d44586e49b98b5621a0
-      internalID: 676610811
+      spriteID: 78fb7ab31ded0cb4f81e3cd5da37ec64
+      internalID: -492717052
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: heroBaseSprite_3
-      rect:
-        serializedVersion: 2
-        x: 192
-        y: 128
-        width: 64
-        height: 64
-      alignment: 1
-      pivot: {x: 0, y: 1}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 26a98f613bbba2047b117dd74f4654fd
-      internalID: -556978322
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: heroBaseSprite_4
+      name: Beast_Slash_3
       rect:
         serializedVersion: 2
         x: 0
-        y: 64
-        width: 64
-        height: 64
-      alignment: 1
-      pivot: {x: 0, y: 1}
+        y: 320
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4fa34e5396947ee47a2dbf316939d221
-      internalID: 699942048
+      spriteID: db037ec25b77b8d43928793b927f8d6d
+      internalID: -373005878
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: heroBaseSprite_5
+      name: Beast_Slash_4
       rect:
         serializedVersion: 2
-        x: 64
-        y: 64
-        width: 64
-        height: 64
-      alignment: 1
-      pivot: {x: 0, y: 1}
+        x: 320
+        y: 320
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f803bfe85d88f914d9267289c9fc5ca0
-      internalID: -1182214213
+      spriteID: 66b0c47e2da05e640a33bccad13a718f
+      internalID: -2028465567
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: heroBaseSprite_6
+      name: Beast_Slash_5
       rect:
         serializedVersion: 2
-        x: 128
-        y: 64
-        width: 64
-        height: 64
-      alignment: 1
-      pivot: {x: 0, y: 1}
+        x: 640
+        y: 320
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2949cd77616c3334f8c6ec7f820ea80a
-      internalID: 314813007
+      spriteID: dfd38530836405f40bfd1bd2858ffbfe
+      internalID: -1325566751
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: heroBaseSprite_7
-      rect:
-        serializedVersion: 2
-        x: 192
-        y: 64
-        width: 64
-        height: 64
-      alignment: 1
-      pivot: {x: 0, y: 1}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f726394d7c528b74bb67e13c82d73c32
-      internalID: 259180603
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: heroBaseSprite_8
+      name: Beast_Slash_6
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 64
-        height: 64
-      alignment: 1
-      pivot: {x: 0, y: 1}
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4fe466004e2f51047ac6935fb55b030c
-      internalID: -1743491808
+      spriteID: d4b4dace641a2af4ea87a62fe33a564b
+      internalID: -2111728297
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: heroBaseSprite_9
+      name: Beast_Slash_7
       rect:
         serializedVersion: 2
-        x: 64
+        x: 320
         y: 0
-        width: 64
-        height: 64
-      alignment: 1
-      pivot: {x: 0, y: 1}
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: eb97e8e0bd7132c4f814c95659496d7e
-      internalID: 1878513099
+      spriteID: 6ba5e62d0879bdd438c0fe5904a547c4
+      internalID: -1024977887
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: heroBaseSprite_10
+      name: Beast_Slash_8
       rect:
         serializedVersion: 2
-        x: 128
+        x: 640
         y: 0
-        width: 64
-        height: 64
-      alignment: 1
-      pivot: {x: 0, y: 1}
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 113bbd65ef5c3fb478c77a6f1a33501b
-      internalID: -230720287
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: heroBaseSprite_11
-      rect:
-        serializedVersion: 2
-        x: 192
-        y: 0
-        width: 64
-        height: 64
-      alignment: 1
-      pivot: {x: 0, y: 1}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 70a094dc3f1067a4caf96557ffd2749d
-      internalID: -469615701
+      spriteID: 81b8f513205f1294696c5c8aa3d2464d
+      internalID: 347919918
       vertices: []
       indices: 
       edges: []
@@ -367,18 +292,15 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      heroBaseSprite_5: -1182214213
-      heroBaseSprite_8: -1743491808
-      heroBaseSprite_1: -1230376856
-      heroBaseSprite_4: 699942048
-      heroBaseSprite_11: -469615701
-      heroBaseSprite_10: -230720287
-      heroBaseSprite_6: 314813007
-      heroBaseSprite_7: 259180603
-      heroBaseSprite_3: -556978322
-      heroBaseSprite_9: 1878513099
-      heroBaseSprite_0: 130481834
-      heroBaseSprite_2: 676610811
+      Beast_Slash_0: 2035946117
+      Beast_Slash_1: 844108507
+      Beast_Slash_2: -492717052
+      Beast_Slash_3: -373005878
+      Beast_Slash_4: -2028465567
+      Beast_Slash_5: -1325566751
+      Beast_Slash_6: -2111728297
+      Beast_Slash_7: -1024977887
+      Beast_Slash_8: 347919918
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

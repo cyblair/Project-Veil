@@ -13,10 +13,11 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Collider2D interactCollider;
     
     private Rigidbody2D rb;
-    private Vector2 moveDirection;
+    private Vector2 moveDirection = Vector2.zero;
     private bool canMove = true;
 
-    // public Animator animator; can worry about this later
+    public Animator animator;
+    private Vector2 lastMoveDirection;
 
     private void Start()
     {
@@ -29,13 +30,23 @@ public class PlayerController : MonoBehaviour
         if (canMove)
         {
             Move(moveDirection * movementSpeed);
-            
-            if (moveDirection != Vector2.zero)
+
+            bool moving = moveDirection != Vector2.zero;
+            if (moving)
             {
-                
-                interactCollider.transform.localEulerAngles = new Vector3(0, 0,
-                    Mathf.Atan2(moveDirection.y, moveDirection.x) * Mathf.Rad2Deg);
+                float interactAngle = Vector2.SignedAngle(Vector2.right, moveDirection);
+                int segments = 8;
+                int angle = 360 / segments;
+                int direction = (int)Mathf.Floor(interactAngle / angle);
+                interactAngle = direction * angle;
+                interactCollider.transform.localEulerAngles = new Vector3(0, 0, interactAngle);
             }
+
+            animator.SetFloat("LastMoveX", lastMoveDirection.x);
+            animator.SetFloat("LastMoveY", lastMoveDirection.y);
+            animator.SetFloat("MoveX", moveDirection.x);
+            animator.SetFloat("MoveY", moveDirection.y);
+            animator.SetFloat("MoveMagnitude", moveDirection.magnitude);
         }
     }
 
@@ -68,6 +79,7 @@ public class PlayerController : MonoBehaviour
     /// <param name="value"></param>
     private void OnMove(InputValue value)
     {
+        lastMoveDirection = moveDirection;
         // Set move direction to the normalized input direction.
         // Input should already be normalized, but we are using normalized here just in case.
         moveDirection = value.Get<Vector2>().normalized;
