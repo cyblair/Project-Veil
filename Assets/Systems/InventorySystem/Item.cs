@@ -4,40 +4,38 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
-public enum ItemType
-{
-    Weapon,
-    Consumable,
-    Misc
-}
-
 [Serializable]
 public class Item : IEquatable<Item>, ICloneable
 {
     public string itemName;
     public Sprite sprite;
-    public ItemType itemType;
     public int stackSize;
     public int maxStackSize;
-
+    
     public Item(Item item)
     {
         itemName = item.itemName;
         sprite = item.sprite;
-        itemType = item.itemType;
         stackSize = item.stackSize;
         maxStackSize = item.maxStackSize;
     }
     
-    public Item(string itemName, Sprite sprite, ItemType itemType, int stackSize, int maxStackSize)
+    public Item(string itemName, Sprite sprite, int stackSize, int maxStackSize)
     {
         this.itemName = itemName;
         this.sprite = sprite;
-        this.itemType = itemType;
         this.stackSize = stackSize;
         this.maxStackSize = maxStackSize;
     }
-    
+
+    protected Item()
+    {
+        itemName = string.Empty;
+        sprite = null;
+        stackSize = 1;
+        maxStackSize = 1;
+    }
+
     public bool IsStackable()
     {
         return maxStackSize > 1;
@@ -73,4 +71,12 @@ public class Item : IEquatable<Item>, ICloneable
     {
         return new Item(this);
     }
+}
+
+[Serializable]
+public class Weapon : Item
+{
+    public float damage;
+    public float attackSpeed;
+    public float attackSize;
 }
