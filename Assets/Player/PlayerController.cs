@@ -102,7 +102,11 @@ public class PlayerController : MonoBehaviour
         results[0].gameObject.BroadcastMessage("Interact", this.gameObject);
     }
 
+
+
+
     #region Device debugging
+
 
     private void OnDeviceLost()
     {

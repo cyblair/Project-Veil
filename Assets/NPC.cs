@@ -4,20 +4,25 @@ using UnityEngine;
 
 public class NPC : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [Header("Dialogue (optional)")]
+    [SerializeField] private string dialogueKnotName;
 
-    // Update is called once per frame
-    void Update()
+    void Interact()
     {
-        
-    }
+        DialogueManager dialogueManager = FindObjectOfType<DialogueManager>();
+        if (dialogueManager == null)
+            return;
 
-    void Interact(GameObject source)
-    {
-        Debug.Log($"{source} Hi! I'm an NPC!");
+        if (dialogueManager.IsDialoguePlaying)
+        {
+            dialogueManager.SubmitPressed();
+        }
+        else
+        {
+            if (!string.IsNullOrEmpty(dialogueKnotName))
+            {
+                GameEventsManager.instance.dialogueEvents.EnterDialogue(dialogueKnotName);
+            }
+        }
     }
 }
