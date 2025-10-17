@@ -4611,7 +4611,7 @@ Tilemap:
       - {fileID: -618268209, guid: bc1ad6971cc6da0408ebc75d4281bc35, type: 3}
       - {fileID: 1507533048, guid: bc1ad6971cc6da0408ebc75d4281bc35, type: 3}
       - {fileID: 53782879, guid: bc1ad6971cc6da0408ebc75d4281bc35, type: 3}
-      m_AnimationSpeed: 8.583352
+      m_AnimationSpeed: 3.903848
       m_AnimationTimeOffset: 0
       m_IsLooping: 1
   m_TileAssetArray:
@@ -36671,7 +36671,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 424212c9c0e4df24a922a05024c74a43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogueKnotName: 
+  dialogueKnotName: dummy
 --- !u!50 &2054531069
 Rigidbody2D:
   serializedVersion: 4
