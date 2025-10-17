@@ -1,4 +1,4 @@
-/* -> npc
+-> npc
 === npc ===
 Waffles or pancakes?
 + [Waffles]
@@ -10,8 +10,6 @@ Waffles or pancakes?
 * [Pancakes]
     Good job you're right.
 - -> DONE
-
-*/
 
 -> dummy
 === dummy ===
