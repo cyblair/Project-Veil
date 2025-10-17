@@ -9,7 +9,7 @@ public class npcScript : MonoBehaviour
     private PlayerController player;
     int textBoxIndex;
     
-    public List<string> dialogue = new List<string>();
+    public List<string> dialogue = new();
     
     public bool playerInRange;
     
