@@ -13,12 +13,12 @@ MonoBehaviour:
   m_Name: Fountain
   m_EditorClassIdentifier: 
   m_AnimatedSprites:
-  - {fileID: 1428187833, guid: c762c60bffdcd784894820d8024ebf54, type: 3}
-  - {fileID: -983610944, guid: c762c60bffdcd784894820d8024ebf54, type: 3}
-  - {fileID: 2089686104, guid: c762c60bffdcd784894820d8024ebf54, type: 3}
-  - {fileID: 328636697, guid: c762c60bffdcd784894820d8024ebf54, type: 3}
+  - {fileID: -638982303, guid: bc1ad6971cc6da0408ebc75d4281bc35, type: 3}
+  - {fileID: -618268209, guid: bc1ad6971cc6da0408ebc75d4281bc35, type: 3}
+  - {fileID: 1507533048, guid: bc1ad6971cc6da0408ebc75d4281bc35, type: 3}
+  - {fileID: 53782879, guid: bc1ad6971cc6da0408ebc75d4281bc35, type: 3}
   m_MinSpeed: 1
-  m_MaxSpeed: 1
+  m_MaxSpeed: 10
   m_AnimationStartTime: 0
   m_AnimationStartFrame: 0
   m_TileColliderType: 0

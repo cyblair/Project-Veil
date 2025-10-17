@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: c762c60bffdcd784894820d8024ebf54
+guid: 2ee8028d6f13f9e40955df493c0ec20d
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -93,13 +93,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: founty_0
+      name: grasses_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 128
-        width: 128
-        height: 128
+        y: 96
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -107,20 +107,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 85f3c78f291fff24f8d037710bc3e6fc
-      internalID: 1428187833
+      spriteID: 8d4bd36a09ce2d649bc743d3e57a52e4
+      internalID: 987280355
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: founty_1
+      name: grasses_1
       rect:
         serializedVersion: 2
-        x: 128
-        y: 128
-        width: 128
-        height: 128
+        x: 0
+        y: 64
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,20 +128,41 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7eed01c84c1521a4cacbb2d73189f8f3
-      internalID: -983610944
+      spriteID: dd94629e13fbd6f41a2dd96567c93885
+      internalID: -1128638141
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: founty_2
+      name: grasses_2
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f61019ed525dfdd4382d2049109705bf
+      internalID: 1201328616
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grasses_3
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 128
-        height: 128
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -149,29 +170,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cfff5540046ce8c40a44f3774df5b29f
-      internalID: 2089686104
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: founty_3
-      rect:
-        serializedVersion: 2
-        x: 128
-        y: 0
-        width: 128
-        height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 5cd7be7d53a9d054baa7ba3badf439c8
-      internalID: 328636697
+      spriteID: 5b0e7b299543db64a99d2204a7bc6036
+      internalID: -1848075696
       vertices: []
       indices: 
       edges: []
@@ -187,10 +187,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      founty_0: 1428187833
-      founty_1: -983610944
-      founty_2: 2089686104
-      founty_3: 328636697
+      grasses_0: 987280355
+      grasses_1: -1128638141
+      grasses_2: 1201328616
+      grasses_3: -1848075696
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
