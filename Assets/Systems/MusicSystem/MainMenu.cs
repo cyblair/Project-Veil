@@ -13,7 +13,7 @@ public class MainMenu : MonoBehaviour
 
     public void Play()
     {
-        SceneManager.LoadScene("New Super Dialogue System (1)");
+        SceneManager.LoadScene("menuTutorial");
         MusicManager.Instance.Stop();
     }
 

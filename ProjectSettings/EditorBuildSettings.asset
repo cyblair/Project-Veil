@@ -12,6 +12,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Menu.unity
     guid: 0f2617688c8b10648b325a40aa00560b
   - enabled: 1
+    path: Assets/Scenes/menuTutorial.unity
+    guid: 9fdee07cc3724ed488f9de86e3b968c5
+  - enabled: 1
     path: Assets/Scenes/New Super Dialogue System (1).unity
     guid: 94429608002b28b4cbd232178fb684ce
   - enabled: 0
