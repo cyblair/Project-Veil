@@ -2,10 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NPC : MonoBehaviour
+public class Town : MonoBehaviour
 {
-
-
     // Start is called before the first frame update
     void Start()
     {
@@ -16,10 +14,5 @@ public class NPC : MonoBehaviour
     void Update()
     {
         
-    }
-
-    void Interact(GameObject source)
-    {
-        Debug.Log($"{source} Hi! I'm an NPC!");
     }
 }
