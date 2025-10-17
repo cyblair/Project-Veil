@@ -25,6 +25,8 @@ public class PlayerBattleController : MonoBehaviour
         cam = Camera.main;
         lr = GetComponent<LineRenderer>();
         cooldownImage = cursorObject.GetComponent<Image>();
+        cursorPos = new Vector2(Screen.width/2, Screen.height/2);
+        Cursor.lockState =  CursorLockMode.Locked;
     }
 
     private void Update()
@@ -41,8 +43,11 @@ public class PlayerBattleController : MonoBehaviour
             cursorImage.color = Color.white;
         }
         
-        //cursorPos += cursorVelocity;
-        //cursorPos = Input.mousePosition;
+        cursorPos += cursorVelocity;
+        cursorObject.transform.position = cursorPos;
+        cursorPos.x = Mathf.Clamp(cursorPos.x, 0, Screen.width);
+        cursorPos.y = Mathf.Clamp(cursorPos.y, 0, Screen.height);
+        
         if (attacking)
         {
             Vector2 fullTranslate = GetCursorPos() - attackStart;
@@ -90,8 +95,8 @@ public class PlayerBattleController : MonoBehaviour
 
     private void OnMousePos(InputValue value)
     {
-        cursorPos = value.Get<Vector2>();
-        cursorObject.transform.position = cursorPos;
+        //cursorPos = value.Get<Vector2>();
+        //cursorObject.transform.position = cursorPos;
         //cursorObject.transform.position = GetCursorPos();
     }
 }
