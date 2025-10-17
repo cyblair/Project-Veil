@@ -17,12 +17,14 @@ public class PlayerBattleController : MonoBehaviour
     private Camera cam;
     private LineRenderer lr;
     [SerializeField] private GameObject cursorObject;
-    [SerializeField] private SpriteRenderer cursorSprite;
+    [SerializeField] private Image cursorImage;
+    private Image cooldownImage;
 
     private void Start()
     {
         cam = Camera.main;
         lr = GetComponent<LineRenderer>();
+        cooldownImage = cursorObject.GetComponent<Image>();
     }
 
     private void Update()
@@ -30,18 +32,23 @@ public class PlayerBattleController : MonoBehaviour
         if (attackTimer > 0)
         {
             attackTimer -= Time.deltaTime;
-            cursorSprite.color = Color.Lerp(Color.gray, Color.red, attackTimer/weapon.attackSpeed);
+            cursorImage.color = Color.red;
+            cooldownImage.fillAmount = 1 - attackTimer / weapon.attackSpeed;
         }
         else
         {
-            cursorSprite.color = Color.white;
+            cooldownImage.fillAmount = 0;
+            cursorImage.color = Color.white;
         }
         
         //cursorPos += cursorVelocity;
         //cursorPos = Input.mousePosition;
         if (attacking)
         {
-            lr.SetPosition(1, GetCursorPos());
+            Vector2 fullTranslate = GetCursorPos() - attackStart;
+            fullTranslate = fullTranslate.normalized * Mathf.Min(fullTranslate.magnitude, weapon.attackSize);
+            Vector2 lrEndPoint = attackStart + fullTranslate;
+            lr.SetPosition(1, lrEndPoint);
         }
     }
 
@@ -63,6 +70,7 @@ public class PlayerBattleController : MonoBehaviour
             fullTranslate = fullTranslate.normalized * Mathf.Min(fullTranslate.magnitude, weapon.attackSize);
             attackScript.target = attackStart + fullTranslate;
             attacking = false;
+            attackTimer = weapon.attackSpeed;
             return;
         }
             
@@ -70,7 +78,6 @@ public class PlayerBattleController : MonoBehaviour
 
         // Press
         attacking = true;
-        attackTimer = weapon.attackSpeed;
         attackStart = GetCursorPos();
         lr.enabled = true;
         lr.SetPosition(0, GetCursorPos());
@@ -84,6 +91,7 @@ public class PlayerBattleController : MonoBehaviour
     private void OnMousePos(InputValue value)
     {
         cursorPos = value.Get<Vector2>();
-        cursorObject.transform.position = GetCursorPos();
+        cursorObject.transform.position = cursorPos;
+        //cursorObject.transform.position = GetCursorPos();
     }
 }
