@@ -9,6 +9,8 @@ public class NPC : MonoBehaviour
 
     void Interact(GameObject source)
     {
+        source.GetComponent<Animator>().SetFloat("MoveMagnitude", 0);
+
         DialogueManager dialogueManager = FindObjectOfType<DialogueManager>();
         if (dialogueManager == null)
             return;

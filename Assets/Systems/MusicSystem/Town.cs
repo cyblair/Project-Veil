@@ -10,7 +10,8 @@ public class Town : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-      
+        Cursor.visible = false;
+        MusicManager.Instance.PlayMusic("Village");
     }
 
     // Update is called once per frame
@@ -18,7 +19,6 @@ public class Town : MonoBehaviour
     {
         if(((bool)DialogueManager.Instance.story.variablesState["inBattle"]) == true)
         {
-            MusicManager.Instance.Stop();
             SceneManager.LoadScene("battleTutorial");
         }
     }

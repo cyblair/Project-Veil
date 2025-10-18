@@ -13,8 +13,8 @@ public class MainMenu : MonoBehaviour
 
     public void Play()
     {
-        SceneManager.LoadScene("menuTutorial");
         MusicManager.Instance.Stop();
+        SceneManager.LoadScene("menuTutorial");
     }
 
     public void Quit()

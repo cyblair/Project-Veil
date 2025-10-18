@@ -16,6 +16,7 @@ public class menuTutorial : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.E))
         {
             SceneManager.LoadScene("New Super Dialogue System (1)");
+            MusicManager.Instance.PlayMusic("Village");
         }
     }
 }
