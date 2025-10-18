@@ -7,6 +7,7 @@ public class PlayerAttack : MonoBehaviour
 {
     public Vector2 target;
     public float speed;
+    public float damage;
 
     void FixedUpdate()
     {

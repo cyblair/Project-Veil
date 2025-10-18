@@ -1,18 +1,31 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Attack : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] float damage;
+    private PlayerBattleController player;
+
+    private void Start()
     {
-        
+        GameObject playerObject = GameObject.FindWithTag("Player");
+        player = playerObject.GetComponent<PlayerBattleController>();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void AnimationEnd()
     {
-        
+        player.health -= damage;
+        Destroy(gameObject);
+    }
+    
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("PlayerAttack"))
+        {
+            Destroy(other.gameObject);
+            Destroy(gameObject);
+        }
     }
 }

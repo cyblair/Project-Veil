@@ -7,6 +7,7 @@ using UnityEngine.UI;
 
 public class PlayerBattleController : MonoBehaviour
 {
+    public float health;
     [SerializeField] private Weapon weapon;
     [SerializeField] private GameObject attackObject;
     private bool attacking = false;
@@ -74,6 +75,7 @@ public class PlayerBattleController : MonoBehaviour
             Vector2 fullTranslate = GetCursorPos() - attackStart;
             fullTranslate = fullTranslate.normalized * Mathf.Min(fullTranslate.magnitude, weapon.attackSize);
             attackScript.target = attackStart + fullTranslate;
+            attackScript.damage = weapon.damage;
             attacking = false;
             attackTimer = weapon.attackSpeed;
             return;
