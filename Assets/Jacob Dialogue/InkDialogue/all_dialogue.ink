@@ -13,12 +13,14 @@ Waffles or pancakes?
 
 -> dummy
 === dummy ===
+VAR inBattle = false
 Fight?
 + [Yes]
-VAR inBattle = true
+(You prepare for battle!)
+~inBattle = true
 -> DONE
 + [No]
-The dummys cold stare scared you.
+The dummys cold stare frightens you.
 (You walk away slowly)
 (coward)
 -> DONE

@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class Town : MonoBehaviour
 {
-    public bool inBattle = false;
+  
 
     // Start is called before the first frame update
     void Start()
@@ -16,9 +16,10 @@ public class Town : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(inBattle == true)
+        if(((bool)DialogueManager.Instance.story.variablesState["inBattle"]) == true)
         {
             SceneManager.LoadScene("BattleSystem");
+            MusicManager.Instance.Stop();
         }
     }
 }

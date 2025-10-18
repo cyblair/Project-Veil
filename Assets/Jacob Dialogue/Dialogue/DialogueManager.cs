@@ -9,7 +9,8 @@ public class DialogueManager : MonoBehaviour
     [Header("Ink Story")]
     [SerializeField] private TextAsset inkJson;
 
-    private Story story;
+    public Story story;
+    public static DialogueManager Instance;
 
     private int currentChoiceIndex = -1;
 
@@ -17,6 +18,7 @@ public class DialogueManager : MonoBehaviour
 
     private void Awake()
     {
+        Instance = this;
         story = new Story(inkJson.text);
     }
 
