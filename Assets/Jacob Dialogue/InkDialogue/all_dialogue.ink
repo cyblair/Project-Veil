@@ -15,9 +15,10 @@ Waffles or pancakes?
 === dummy ===
 Fight?
 + [Yes]
-SceneManager.LoadScene("New Super Dialogue System (1)");
+VAR inBattle = true
 -> DONE
 + [No]
 The dummys cold stare scared you.
-"* You walk away slowly (coward).
+(You walk away slowly)
+(coward)
 -> DONE
