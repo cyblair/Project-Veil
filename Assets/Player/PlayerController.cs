@@ -98,7 +98,8 @@ public class PlayerController : MonoBehaviour
         int hits = interactCollider.OverlapCollider(contactFilter, results);
 
         if (hits <= 0) return;
-        
+
+        SoundManager2.Instance.PlaySound2D("Hover");
         results[0].gameObject.BroadcastMessage("Interact", this.gameObject);
     }
 

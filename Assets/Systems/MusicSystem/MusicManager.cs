@@ -5,54 +5,96 @@ public class MusicManager : MonoBehaviour
 {
     public static MusicManager Instance;
 
-    [SerializeField]
-    private MusicLibrary musicLibrary;
-    [SerializeField]
-    private AudioSource musicSource;
+    [SerializeField] private MusicLibrary musicLibrary;
+    [SerializeField] private AudioSource musicSource;
+
+    private Coroutine currentFade;
 
     private void Awake()
     {
-        if (Instance != null)
+        if (Instance != null && Instance != this)
         {
             Destroy(gameObject);
+            return;
         }
-        else
-        {
-            Instance = this;
-            DontDestroyOnLoad(gameObject);
-        }
+
+        Instance = this;
+        DontDestroyOnLoad(gameObject);
     }
 
     public void PlayMusic(string trackName, float fadeDuration = 0.5f)
     {
-        StartCoroutine(AnimateMusicCrossfade(musicLibrary.GetClipFromName(trackName), fadeDuration));
+        AudioClip nextTrack = musicLibrary.GetClipFromName(trackName);
+        if (nextTrack == null)
+        {
+            Debug.LogWarning($"MusicManager: Track '{trackName}' not found!");
+            return;
+        }
+
+        if (currentFade != null)
+            StopCoroutine(currentFade);
+
+        currentFade = StartCoroutine(AnimateMusicCrossfade(nextTrack, fadeDuration));
     }
 
-    public void Stop()
+    public void Stop(float fadeDuration = 0.5f)
     {
         if (musicSource.isPlaying)
-            musicSource.Stop();
+        {
+            if (currentFade != null)
+                StopCoroutine(currentFade);
+
+            StartCoroutine(FadeOutAndStop(fadeDuration));
+        }
     }
 
-    IEnumerator AnimateMusicCrossfade(AudioClip nextTrack, float fadeDuration = 0.5f)
+    private IEnumerator FadeOutAndStop(float fadeDuration)
     {
-        float percent = 0;
-        while (percent < 1)
+        float startVolume = musicSource.volume;
+        float t = 0f;
+
+        while (t < fadeDuration)
         {
-            percent += Time.deltaTime * 1 / fadeDuration;
-            musicSource.volume = Mathf.Lerp(1f, 0, percent);
+            t += Time.deltaTime;
+            musicSource.volume = Mathf.Lerp(startVolume, 0f, t / fadeDuration);
             yield return null;
         }
 
+        musicSource.Stop();
+        musicSource.clip = null;
+        musicSource.volume = 1f; // Reset for next play
+    }
+
+    private IEnumerator AnimateMusicCrossfade(AudioClip nextTrack, float fadeDuration)
+    {
+        if (musicSource.clip == nextTrack)
+            yield break; // Prevent replaying same track
+
+        float t = 0f;
+
+        // Fade out current music
+        if (musicSource.isPlaying)
+        {
+            while (t < fadeDuration)
+            {
+                t += Time.deltaTime;
+                musicSource.volume = Mathf.Lerp(1f, 0f, t / fadeDuration);
+                yield return null;
+            }
+        }
+
+        // Switch and fade in
         musicSource.clip = nextTrack;
         musicSource.Play();
 
-        percent = 0;
-        while (percent < 1)
+        t = 0f;
+        while (t < fadeDuration)
         {
-            percent += Time.deltaTime * 1 / fadeDuration;
-            musicSource.volume = Mathf.Lerp(0, 1f, percent);
+            t += Time.deltaTime;
+            musicSource.volume = Mathf.Lerp(0f, 1f, t / fadeDuration);
             yield return null;
         }
+
+        musicSource.volume = 1f;
     }
 }
