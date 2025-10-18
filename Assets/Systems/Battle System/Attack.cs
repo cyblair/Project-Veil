@@ -24,6 +24,7 @@ public class Attack : MonoBehaviour
     {
         if (other.gameObject.CompareTag("PlayerAttack"))
         {
+            SoundManager2.Instance.PlaySound2D("Parry");
             Destroy(other.gameObject);
             Destroy(gameObject);
         }

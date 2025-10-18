@@ -76,6 +76,7 @@ public class PlayerBattleController : MonoBehaviour
             fullTranslate = fullTranslate.normalized * Mathf.Min(fullTranslate.magnitude, weapon.attackSize);
             attackScript.target = attackStart + fullTranslate;
             attackScript.damage = weapon.damage;
+            SoundManager2.Instance.PlaySound2D("Slash");
             attacking = false;
             attackTimer = weapon.attackSpeed;
             return;

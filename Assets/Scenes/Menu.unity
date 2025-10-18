@@ -520,6 +520,12 @@ MonoBehaviour:
   - groupID: Hover
     clips:
     - {fileID: 8300000, guid: eb68d46e09e9660489c2be07e2d361ac, type: 3}
+  - groupID: Slash
+    clips:
+    - {fileID: 8300000, guid: 9732e2f748f899046a21d16e30daa621, type: 3}
+  - groupID: Parry
+    clips:
+    - {fileID: 8300000, guid: f3e0501f1538fe248a7a26502ed210d4, type: 3}
 --- !u!114 &683021987
 MonoBehaviour:
   m_ObjectHideFlags: 0

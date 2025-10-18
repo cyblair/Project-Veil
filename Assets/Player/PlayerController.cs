@@ -89,6 +89,11 @@ public class PlayerController : MonoBehaviour
     {
         if (!value.isPressed) return;
 
+        Rigidbody2D rb = GetComponent<Rigidbody2D>();
+        if (rb != null)
+            rb.velocity = Vector2.zero;
+
+
         List<Collider2D> results = new List<Collider2D>();
         ContactFilter2D contactFilter = new ContactFilter2D
         {

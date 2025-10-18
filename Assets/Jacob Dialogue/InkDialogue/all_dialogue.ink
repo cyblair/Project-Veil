@@ -110,7 +110,7 @@ Be honest with me, am I short?
     (You have a feeling this is the first time this has happened.)
     -> DONE
 * [Yes]
-    (He breaks out into tears)
+    (He breaks out into tears.)
     WHY WOULD YOU CALL ME SHORT!?
     I MEAN I KNOW I'M SHORT BUT C'MON!!
     (You have a feeling this isn't the first time this has happened.)

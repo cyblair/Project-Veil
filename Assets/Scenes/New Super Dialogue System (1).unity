@@ -3202,7 +3202,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: d5a5f8be145771d4fbcaf3182187edf2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -5462,7 +5462,7 @@ Tilemap:
       - {fileID: -618268209, guid: bc1ad6971cc6da0408ebc75d4281bc35, type: 3}
       - {fileID: 1507533048, guid: bc1ad6971cc6da0408ebc75d4281bc35, type: 3}
       - {fileID: 53782879, guid: bc1ad6971cc6da0408ebc75d4281bc35, type: 3}
-      m_AnimationSpeed: 1.4142919
+      m_AnimationSpeed: 4.8013945
       m_AnimationTimeOffset: 0
       m_IsLooping: 1
   m_TileAssetArray:
@@ -7416,7 +7416,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 4
+  m_SortingOrder: 3
   m_Sprite: {fileID: 21300000, guid: 4984f6a1e3a26434693a2bffaf52a305, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -38060,7 +38060,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 10
-      m_TileSpriteIndex: 14
+      m_TileSpriteIndex: 15
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -38190,7 +38190,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 11
-      m_TileSpriteIndex: 11
+      m_TileSpriteIndex: 14
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -38379,16 +38379,16 @@ Tilemap:
     m_Data: {fileID: 1712706431, guid: 4da4afb82face8a4e8053ee1856858e7, type: 3}
   - m_RefCount: 0
     m_Data: {fileID: 0}
-  - m_RefCount: 1
-    m_Data: {fileID: -1158182424, guid: 7f2bdedcd29fe5f4b8230b771aaf1d27, type: 3}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
   - m_RefCount: 2
     m_Data: {fileID: -1094578321, guid: 7f2bdedcd29fe5f4b8230b771aaf1d27, type: 3}
   - m_RefCount: 2
     m_Data: {fileID: 632834745, guid: 7f2bdedcd29fe5f4b8230b771aaf1d27, type: 3}
   - m_RefCount: 1
+    m_Data: {fileID: -1158182424, guid: 7f2bdedcd29fe5f4b8230b771aaf1d27, type: 3}
+  - m_RefCount: 1
     m_Data: {fileID: -272615995, guid: 7f2bdedcd29fe5f4b8230b771aaf1d27, type: 3}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
   - m_RefCount: 1
     m_Data: {fileID: 210182784, guid: 7f2bdedcd29fe5f4b8230b771aaf1d27, type: 3}
   - m_RefCount: 1

@@ -73,6 +73,7 @@ public class EnemyBattleLogic : MonoBehaviour
 
     public void AnimationEnd()
     {
+        MusicManager.Instance.Stop();
         SceneManager.LoadScene("New Super Dialogue System (1)");
     }
 }

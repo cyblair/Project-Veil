@@ -17,6 +17,7 @@ public class battleTutorial : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.E))
         {
             SceneManager.LoadScene("BattleSystem");
+            MusicManager.Instance.PlayMusic("Battle");
         }
     }
 }
