@@ -3,23 +3,21 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class Town : MonoBehaviour
+public class battleTutorial : MonoBehaviour
 {
-  
-
     // Start is called before the first frame update
     void Start()
     {
-      
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(((bool)DialogueManager.Instance.story.variablesState["inBattle"]) == true)
+        if (Input.GetKeyDown(KeyCode.E))
         {
-            MusicManager.Instance.Stop();
-            SceneManager.LoadScene("battleTutorial");
+            SceneManager.LoadScene("BattleSystem");
+            MusicManager.Instance.PlayMusic("Village");
         }
     }
 }
