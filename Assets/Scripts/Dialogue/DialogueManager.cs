@@ -69,12 +69,17 @@ public class DialogueManager : MonoBehaviour
         {
             Debug.LogWarning("Knot name is empty string! D:");
         }
-        ContinueOrExitStory();
+
+        // Notify UI that dialogue started (activate panel) BEFORE sending the first content
         GameEventsManager.instance.dialogueEvents.DialogueStarted();
+
+        // Now continue the story and send DisplayDialogue events
+        ContinueOrExitStory();
 
         PlayerController player = FindObjectOfType<PlayerController>();
         player.BlockMovement();
     }
+
 
     private void ContinueOrExitStory()
     {

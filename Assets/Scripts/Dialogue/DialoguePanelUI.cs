@@ -17,7 +17,6 @@ public class DialoguePanelUI : MonoBehaviour
         ResetPanel();
     }
 
-
     private void OnEnable()
     {
         GameEventsManager.instance.dialogueEvents.onDialogueStarted += DialogueStarted;
@@ -31,8 +30,6 @@ public class DialoguePanelUI : MonoBehaviour
         GameEventsManager.instance.dialogueEvents.onDialogueFinished -= DialogueFinished;
         GameEventsManager.instance.dialogueEvents.onDisplayDialogue -= DisplayDialogue;
     }
-
-
 
     private void DialogueStarted()
     {
@@ -54,30 +51,34 @@ public class DialoguePanelUI : MonoBehaviour
             Debug.LogError("More dialogue choices (" + dialogueChoices.Count + ") came through than are supported (" + choiceButtons.Length + ").");
         }
 
+        // Hide all choice buttons first
         foreach (DialogueChoiceButton choiceButton in choiceButtons)
         {
             choiceButton.gameObject.SetActive(false);
         }
+
         int choiceButtonIndex = dialogueChoices.Count - 1;
+
+        // Set up buttons
         for (int inkChoiceIndex = 0; inkChoiceIndex < dialogueChoices.Count; inkChoiceIndex++)
         {
             Choice dialogueChoice = dialogueChoices[inkChoiceIndex];
             DialogueChoiceButton choiceButton = choiceButtons[choiceButtonIndex];
 
             choiceButton.gameObject.SetActive(true);
-            choiceButton.SetChoiceText(dialogueChoice.text);
             choiceButton.SetChoiceIndex(inkChoiceIndex);
+            choiceButton.SetChoiceText(dialogueChoice.text);
 
-            if (inkChoiceIndex == 0)
-            {
-                choiceButton.SelectButton();
-                GameEventsManager.instance.dialogueEvents.UpdateChoiceIndex(0);
-            }
             choiceButtonIndex--;
-
         }
 
-
+        // Select first button if any choices exist
+        if (dialogueChoices.Count > 0)
+        {
+            DialogueChoiceButton firstButton = choiceButtons[dialogueChoices.Count - 1]; // top-most visible one
+            firstButton.SelectButton(); // triggers OnSelect()
+            GameEventsManager.instance.dialogueEvents.UpdateChoiceIndex(0);
+        }
     }
 
     private void ResetPanel()
