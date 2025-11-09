@@ -1,0 +1,55 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class BattleMenu : MonoBehaviour
+{
+    [SerializeField] List<GameObject> menu = new();
+    [SerializeField] float selectedScale;
+    private int selected = 0;
+    private int selectedPrev = 0;
+
+    // Update is called once per frame
+    void Update()
+    {
+        GameObject obj;
+        Vector3 scale;
+        float t = 0.1f;
+        if (selectedPrev != selected)
+        {
+            obj = menu[selectedPrev];
+            scale = obj.transform.localScale;
+            obj.transform.localScale = new Vector3(
+                Mathf.Lerp(scale.x, 1, t),
+                Mathf.Lerp(scale.y, 1, t),
+                Mathf.Lerp(scale.z, 1, t)
+            );
+        }
+        
+        obj = menu[selected];
+        scale = obj.transform.localScale;
+        obj.transform.localScale = new Vector3(
+            Mathf.Lerp(scale.x, selectedScale, t),
+            Mathf.Lerp(scale.y, selectedScale, t),
+            Mathf.Lerp(scale.z, selectedScale, t)
+        );
+    }
+
+    public void Next()
+    {
+        if (selected < menu.Count - 1)
+        {
+            selectedPrev = selected;
+            selected++;
+        }
+    }
+
+    public void Prev()
+    {
+        if (selected > 0)
+        {
+            selectedPrev = selected;
+            selected--;
+        }
+    }
+}
