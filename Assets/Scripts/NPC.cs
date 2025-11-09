@@ -12,12 +12,20 @@ public class NPC : MonoBehaviour
         source.GetComponent<Animator>().SetFloat("MoveMagnitude", 0);
 
         DialogueManager dialogueManager = FindObjectOfType<DialogueManager>();
+        DialoguePanelUI dialoguePanelUI = FindObjectOfType<DialoguePanelUI>();
         if (dialogueManager == null)
             return;
 
         if (dialogueManager.IsDialoguePlaying)
         {
-            dialogueManager.SubmitPressed();
+            if (dialoguePanelUI.isTyping)
+            {
+                dialoguePanelUI.SkipTyping();
+            }
+            else
+            {
+                dialogueManager.SubmitPressed();
+            }
         }
         else
         {

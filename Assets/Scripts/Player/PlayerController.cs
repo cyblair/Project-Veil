@@ -87,7 +87,12 @@ public class PlayerController : MonoBehaviour
 
     private void OnInteract(InputValue value)
     {
+
         if (!value.isPressed) return;
+
+
+
+
 
         Rigidbody2D rb = GetComponent<Rigidbody2D>();
         if (rb != null)

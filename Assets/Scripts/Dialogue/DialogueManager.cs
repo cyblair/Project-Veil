@@ -22,8 +22,8 @@ public class DialogueManager : MonoBehaviour
         story = new Story(inkJson.text);
     }
 
-    // Start is called before the first frame update
-    private bool dialoguePlaying = false;
+
+    public bool dialoguePlaying = false;
 
     private void OnEnable()
     {

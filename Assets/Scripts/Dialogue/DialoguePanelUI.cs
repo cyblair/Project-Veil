@@ -44,14 +44,18 @@ public class DialoguePanelUI : MonoBehaviour
 
     private void DisplayDialogue(string dialogueLine, List<Choice> dialogueChoices)
     {
-        dialogueText.text = dialogueLine;
+        if (typingCoroutine != null)
+        {
+            StopCoroutine(typingCoroutine);
+        }
+        typingCoroutine = StartCoroutine(TypeText(dialogueLine));
 
         if (dialogueChoices.Count > choiceButtons.Length)
         {
             Debug.LogError("More dialogue choices (" + dialogueChoices.Count + ") came through than are supported (" + choiceButtons.Length + ").");
         }
 
-        // Hide all choice buttons first
+
         foreach (DialogueChoiceButton choiceButton in choiceButtons)
         {
             choiceButton.gameObject.SetActive(false);
@@ -59,7 +63,6 @@ public class DialoguePanelUI : MonoBehaviour
 
         int choiceButtonIndex = dialogueChoices.Count - 1;
 
-        // Set up buttons
         for (int inkChoiceIndex = 0; inkChoiceIndex < dialogueChoices.Count; inkChoiceIndex++)
         {
             Choice dialogueChoice = dialogueChoices[inkChoiceIndex];
@@ -72,7 +75,7 @@ public class DialoguePanelUI : MonoBehaviour
             choiceButtonIndex--;
         }
 
-        // Select first button if any choices exist
+
         if (dialogueChoices.Count > 0)
         {
             DialogueChoiceButton firstButton = choiceButtons[dialogueChoices.Count - 1]; // top-most visible one
@@ -85,4 +88,46 @@ public class DialoguePanelUI : MonoBehaviour
     {
         dialogueText.text = "";
     }
+
+
+
+    private Coroutine typingCoroutine;
+
+    private bool skipTyping = false;
+
+    private IEnumerator TypeText(string fullText, float delay = 0.02f)
+    {
+        dialogueText.text = "";
+        skipTyping = false;
+
+        isTyping = true;
+        foreach (char c in fullText)
+        {
+            if (skipTyping)
+            {
+                dialogueText.text = fullText;
+                yield break;
+            }
+
+            dialogueText.text += c;
+            yield return new WaitForSeconds(delay);
+        }
+        isTyping = false;
+    }
+    public bool isTyping;
+    public bool SkipTyping()
+    {
+        if (typingCoroutine != null)
+        {
+            skipTyping = true;
+            isTyping = false;
+            return true;
+        }
+        return false;
+    }
+
+
+
+
+
 }
