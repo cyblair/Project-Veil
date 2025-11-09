@@ -94,13 +94,15 @@ public class DialoguePanelUI : MonoBehaviour
     private Coroutine typingCoroutine;
 
     private bool skipTyping = false;
-
     private IEnumerator TypeText(string fullText, float delay = 0.02f)
     {
+        float dialogueSpeed = delay;
         dialogueText.text = "";
         skipTyping = false;
 
         isTyping = true;
+        bool skipChars = false;
+        string tagText = "";
         foreach (char c in fullText)
         {
             if (skipTyping)
@@ -108,9 +110,44 @@ public class DialoguePanelUI : MonoBehaviour
                 dialogueText.text = fullText;
                 yield break;
             }
+            if (c == '<')
+            {
+                skipChars = true;
+                dialogueSpeed = 0;
+            }
 
-            dialogueText.text += c;
-            yield return new WaitForSeconds(delay);
+
+            if (!skipChars)
+            {
+                dialogueText.text += c;
+            }
+            else
+            {
+                tagText += c;
+            }
+
+
+            if (c == '>')
+            {
+                skipChars = false;
+                if (tagText.Contains("<delay="))
+                {
+                    if (tagText.Contains("defaultDelay"))
+                    {
+                        dialogueSpeed = delay;
+                    }
+                    else
+                    {
+                        dialogueSpeed = float.Parse(tagText.Substring(tagText.IndexOf('=') + 1, tagText.IndexOf('>') - tagText.IndexOf('=') - 1));
+                    }
+                }
+                else
+                {
+                    dialogueText.text += tagText;
+                }
+                tagText = "";
+            }
+            yield return new WaitForSeconds(dialogueSpeed);
         }
         isTyping = false;
     }

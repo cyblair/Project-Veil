@@ -23,6 +23,7 @@ public class DialogueManager : MonoBehaviour
     }
 
 
+
     public bool dialoguePlaying = false;
 
     private void OnEnable()

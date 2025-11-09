@@ -1,7 +1,8 @@
+INCLUDE inkVariables.ink
+
 -> kevin
-=
 === kevin ===
-- I looked at Monsieur Fogg 
+- Erm<delay=0.5>...<delay=defaultDelay>{smallSize}he's right behind me, isn't he?{defaultSize}
 *   Yes.
     'What is the purpose of our journey, Monsieur?'
     'A wager,' he replied.
