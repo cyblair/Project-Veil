@@ -2,7 +2,7 @@ INCLUDE inkVariables.ink
 
 -> kevin
 === kevin ===
-- Erm<delay=0.5>...<delay=defaultDelay>{smallSize}he's right behind me, isn't he?{defaultSize}
+- Erm...<,delay=0.5>{smallSize}he's right behind me,<,delay=0.5> isn't he?{defaultSize}
 *   Yes.
     'What is the purpose of our journey, Monsieur?'
     'A wager,' he replied.
