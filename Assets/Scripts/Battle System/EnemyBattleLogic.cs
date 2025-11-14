@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -11,6 +12,7 @@ public class EnemyBattleLogic : MonoBehaviour
     [SerializeField] private Enemy enemy;
     [SerializeField] private Image healthbar;
     [SerializeField] private bool canAttack;
+    [SerializeField] private TextMeshProUGUI nameText;
     private float pathProgress;
     private float battleTime;
     private Animator animator;
@@ -22,6 +24,7 @@ public class EnemyBattleLogic : MonoBehaviour
     {
         animator = GetComponent<Animator>();
         maxHealth = enemy.health;
+        nameText.text = enemy.name;
     }
 
     // Update is called once per frame

@@ -998,6 +998,7 @@ GameObject:
   - component: {fileID: 1291929806}
   - component: {fileID: 1291929808}
   - component: {fileID: 1291929807}
+  - component: {fileID: 1291929809}
   m_Layer: 5
   m_Name: attack
   m_TagString: Untagged
@@ -1063,6 +1064,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1291929805}
   m_CullTransparentMesh: 1
+--- !u!114 &1291929809
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1291929805}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c359642a452f66439fb1fd8d2106b8b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buttonName: Fight
+  cam: {fileID: 1327904421}
+  menu: {fileID: 2045257172}
+  menuTarget: {x: -1100, y: -450, z: 0}
 --- !u!1 &1327904417
 GameObject:
   m_ObjectHideFlags: 0
@@ -1536,6 +1553,7 @@ MonoBehaviour:
   cursorPos: {x: 0, y: 0}
   cursorObject: {fileID: 321352314}
   cursorImage: {fileID: 2108070664}
+  battleMenu: {fileID: 2045257172}
 --- !u!4 &1672872547
 Transform:
   m_ObjectHideFlags: 0
@@ -1576,7 +1594,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_ActionEvents: []
-  m_NeverAutoSwitchControlSchemes: 1
+  m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: PlayerControls
   m_SplitScreenIndex: -1
@@ -1872,6 +1890,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2045257171}
+  - component: {fileID: 2045257172}
   m_Layer: 5
   m_Name: battle menu
   m_TagString: Untagged
@@ -1903,6 +1922,25 @@ RectTransform:
   m_AnchoredPosition: {x: -171, y: 0}
   m_SizeDelta: {x: 600, y: 600}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &2045257172
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2045257170}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4c3e90968b091946923db45166c8264, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  menu:
+  - {fileID: 1291929805}
+  - {fileID: 1071637552}
+  - {fileID: 2145260322}
+  - {fileID: 949066134}
+  selectedScale: 1.25
+  target: {x: -171, y: 0, z: 0}
 --- !u!1 &2048361585
 GameObject:
   m_ObjectHideFlags: 0
@@ -2029,6 +2067,7 @@ GameObject:
   - component: {fileID: 2145260323}
   - component: {fileID: 2145260325}
   - component: {fileID: 2145260324}
+  - component: {fileID: 2145260326}
   m_Layer: 5
   m_Name: check
   m_TagString: Untagged
@@ -2094,3 +2133,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2145260322}
   m_CullTransparentMesh: 1
+--- !u!114 &2145260326
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2145260322}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac28d9834df444c42a5ad675af8909e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buttonName: Check
+  cam: {fileID: 1327904421}
+  menu: {fileID: 2045257172}
+  menuTarget: {x: -1100, y: -450, z: 0}

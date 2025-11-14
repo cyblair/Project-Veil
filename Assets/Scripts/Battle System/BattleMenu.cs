@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,6 +9,16 @@ public class BattleMenu : MonoBehaviour
     [SerializeField] float selectedScale;
     private int selected = 0;
     private int selectedPrev = 0;
+    private RectTransform rectTransform;
+    
+    public Vector3 target;
+    private Vector3 originalPosition;
+
+    private void Start()
+    {
+        rectTransform = GetComponent<RectTransform>();
+        originalPosition = rectTransform.anchoredPosition;
+    }
 
     // Update is called once per frame
     void Update()
@@ -33,6 +44,8 @@ public class BattleMenu : MonoBehaviour
             Mathf.Lerp(scale.y, selectedScale, t),
             Mathf.Lerp(scale.z, selectedScale, t)
         );
+        
+        rectTransform.anchoredPosition = Vector3.Lerp(rectTransform.anchoredPosition, target, 10f * Time.deltaTime);
     }
 
     public void Next()
@@ -51,5 +64,15 @@ public class BattleMenu : MonoBehaviour
             selectedPrev = selected;
             selected--;
         }
+    }
+
+    public void ResetPosition()
+    {
+        target = originalPosition;
+    }
+
+    public void Click()
+    {
+        menu[selected].GetComponent<BattleMenuButton>().OnClick();
     }
 }

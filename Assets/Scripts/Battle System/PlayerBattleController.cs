@@ -116,4 +116,10 @@ public class PlayerBattleController : MonoBehaviour
             battleMenu.Prev();
         }
     }
+
+    private void OnInteract(InputValue value)
+    {
+        if (value.isPressed)
+            battleMenu.Click();
+    }
 }
