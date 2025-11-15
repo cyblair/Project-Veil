@@ -3,6 +3,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+enum MenuOption
+{
+   Fight,
+   Items,
+   Check,
+   Flee
+}
+
 public class BattleMenu : MonoBehaviour
 {
     [SerializeField] List<GameObject> menu = new();
@@ -10,6 +18,8 @@ public class BattleMenu : MonoBehaviour
     private int selected = 0;
     private int selectedPrev = 0;
     private RectTransform rectTransform;
+
+    public bool locked = false;
     
     public Vector3 target;
     private Vector3 originalPosition;
@@ -50,6 +60,8 @@ public class BattleMenu : MonoBehaviour
 
     public void Next()
     {
+        if (locked) return;
+        
         if (selected < menu.Count - 1)
         {
             selectedPrev = selected;
@@ -59,6 +71,8 @@ public class BattleMenu : MonoBehaviour
 
     public void Prev()
     {
+        if (locked) return;
+        
         if (selected > 0)
         {
             selectedPrev = selected;
@@ -68,11 +82,18 @@ public class BattleMenu : MonoBehaviour
 
     public void ResetPosition()
     {
-        target = originalPosition;
+        IEnumerator Reset() {
+            yield return new WaitForEndOfFrame();
+            target = originalPosition;
+            locked = false;
+        }
+        StartCoroutine(Reset());
     }
+    
 
     public void Click()
     {
         menu[selected].GetComponent<BattleMenuButton>().OnClick();
+        locked = true;
     }
 }
